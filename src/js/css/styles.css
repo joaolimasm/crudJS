@@ -1,0 +1,36 @@
+ul, li {
+list-style: none;
+
+}
+
+.clickable {
+cursor: pointer;
+}
+
+
+.deletButton{
+transition-duration: 0.4s;
+background-color:#ffcb05;
+color: #fff;
+margin-right: 10px;
+font-weight: bold;
+
+}
+.deletButton:hover {
+color: #fff;
+background-color: #ffcb05;
+border-radius: 50px;
+
+}
+
+body {
+
+background-image: linear-gradient(to right, rgba(42, 117, 187), rgba(255, 203, 5));
+
+
+}
+
+h1, h2, form {
+color: #ffcb05;
+
+}

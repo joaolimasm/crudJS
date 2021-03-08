@@ -1,17 +1,16 @@
-window.addEventListener('load', start);
-
 let globalNames = ['JV', 'DZ', 'DN', 'KL'];
 let globalInputName = null;
 let isEditing = false;
 let currentIndex = null;
-function start() {
 
+
+window.addEventListener('load', () => {
     globalInputName = document.querySelector('#inputName');
     preventFormSubmit();
     activateInput();
     render();
 
-}
+});
 
 function preventFormSubmit() {
     function handleFormSubmit(event) {
@@ -23,7 +22,8 @@ function preventFormSubmit() {
 
 function activateInput() {
     function insertName(newName) {
-        globalNames.push(newName);
+        //  globalNames.push(newName);
+        globalNames = [...globalNames, newName];
     }
 
     function updateName(newName) {
@@ -58,7 +58,16 @@ function render() {
     function createDeleteButton(index) {
         function deleteName() {
 
-            globalNames.splice(index, 1);
+            //globalNames.splice(index, 1);
+
+            //globalNames = globalNames.filter((name, i)) => {
+            //if (i === index) {
+            //return false;
+            //}
+            //
+            //          }
+
+            globalNames = globalNames.filter((_, i) => i !== index);
             render();
 
         }
@@ -88,9 +97,11 @@ function render() {
     //elemento de inserção de nome e limpando 
     let divNames = document.querySelector('#names');
     divNames.innerHTML = '';
+
     //elementos de lista
     let ul = document.createElement('ul');
-    // percorrendo todos os nomes 
+
+    // percorrendo todos os nomes
     for (let i = 0; i < globalNames.length; i++) {
 
         let currentName = globalNames[i];
@@ -116,8 +127,14 @@ function render() {
     clearInput();
 }
 
-function clearInput() {
+//function clearInput() {
 
+//globalInputName.value = '';
+//globalInputName.focus();
+//}
+
+const clearInput = () => {
     globalInputName.value = '';
     globalInputName.focus();
+
 }
